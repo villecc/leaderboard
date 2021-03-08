@@ -54,6 +54,8 @@ main()
 	for (; i < users.length; i++)
 		leaderboard.push({ u: users[i], h: await gethours(users[i]) });
 	leaderboard.sort((a, b) => { return b.h - a.h; });
+	leaderboard = leaderboard.map(a => { return Object.values(a).toString() }).join('\n');
+
 	console.log(leaderboard);
 }
 
